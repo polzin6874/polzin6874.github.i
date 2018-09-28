@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YeEt</title>
+    <link rel="stylesheet" href="sports.css">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .checked {
+            color: orange;
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+<div class="topnav">
+
+    <a href="index.html">Home</a>
+    <a class="active" href="school.html">Sports</a>
+    <a href="dogerating.html">;)</a>
+    <a href="about.html">About</a>
+    <a href="miniproj.html">Mini Projects</a>
+</div>
+<h1></h1>
+<h2 class="w3-center">Sports!</h2>
+<div class="w3-content w3-display-container">
+    <img class="mySlides" src="img/swimming.jpg" style="width:100%" height="460">
+    <img class="mySlides" src="img/soccer.jpg" style="width:100%" height="460">
+    <img class="mySlides" src="img/volleyball.jpeg" style="width:100%" height="460">
+    <img class="mySlides" src="img/backstroke.jpeg" style="width:100%" height="460">
+
+    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+</div>
+
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex-1].style.display = "block";
+    }
+</script>
+<div class="a">
+
+<h2>Sports I do</h2>
+    <h3>For 4 or so years I played soccer on a team. I played as a goalie and forward right (its been a while so i dont remember the positions well).
+    I now do swimming, I have been swimming since 6th grade or earlier and both of my brothers swim. I have been on three teams and I have a rating of them below.</h3>
+<br><br>
+    <h1>Ratings of Swim teams</h1>
+    <h2><a href="https://www.teamunify.com/Home.jsp?team=ilspdb">Schaumburg Barracudas Swim Team</a></h2>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star "></span>
+    <span class="fa fa-star "></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+<br> <br>
+    <h2><a href="https://www.teamunify.com/Home.jsp?team=ilpst">Palatine Park District (PPD)</a></h2>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <span class="fa fa-star"></span>
+    <br> <br>
+    <h2><a href="https://www.teamunify.com/Home.jsp?team=ilreach">Reach Aquatics Swim Team</a></h2>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+<br><br><br><br><br><br><br>
+    <h2>Another sport that I play is volleyball. I enjoy volleyball a lot. My brother also plays volleyball and plays middle hitter. Since volleyball season has not started yet
+    I hope to play middle hitter or outside hitter. I played for 2 seasons at my middle school, and I took a volleyball camp at Hoffman over the summer</h2>
+    <br><br><br><br>
+
+
+
+</div>
+</body>
+</html>
