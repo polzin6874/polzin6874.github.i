@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="home.css">
+    <script src="miniprojs.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+</head>
+<body>
+<div class="topnav">
+    <a  href="index.html">Home</a>
+    <a href="school.html">Sports</a>
+    <a href="dogerating.html">;)</a>
+    <a href="about.html">About</a>
+    <a class="active" href="miniproj.html">Mini Projects</a>
+    <a href="calculator.html">Calculator</a>
+</div>
+<br><br>
+<form name="project1">
+    <h4>What Season is it?</h4>
+    <br><br>
+    Enter a temperature
+    <input name="input1" type="text" placeholder="Type Temperature here">
+    <button type="button" onclick="document.project1.result.value=temperatureBug()">Whats the season?</button>
+    <br><br>
+    Season :<input name="result" type="text" readonly="true" size="60">
+</form>
+<br><br>
+<form name="project3">
+    <h4>Calorie Counter</h4>
+    <br><br>
+    Select an activity:
+    <select id="workList">
+        <option value="walking">Walking</option>
+        <option value="running">Running</option>
+        <option value="programming">Programming</option>
+        <option value="swimming">Swimming</option>
+        <option value="tv">Watching TV</option>
+        <option value="sleeping">Sleeping</option>
+        <option value="tennis">Tennis</option>
+    </select>
+    Time spent doing Activity :<input name="input2" type="text" placeholder="Type time in MINUETS">
+    <button type="button" onclick="document.project3.result.value=calorieCounter()">Calories burned</button>
+    <br><br>
+    Calories burned: <input name="result" type="text" readonly="true"  size="60" >
+</form>
+<br><br>
+<form name="project4">
+    <h4>Base To Other Base Converter 9000</h4>
+
+       <input name="input1" type="text" placeholder="Type Number Here" size="60"> <br>
+       <input name="input2" type="text" placeholder="Type Base Here" size="60"> <br>
+       <input name="input3" type="text" placeholder="Type Base to convert to Here" size="60"> <br>
+       <button type="button" onclick="document.project4.result.value=xToY()">Convert!</button>
+       <br><br>
+       Result :<input name="result" type="text" readonly="true" size="60">
+</form>
+<br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
+</body>
+</html>

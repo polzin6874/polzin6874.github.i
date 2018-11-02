@@ -91,11 +91,6 @@ function xToY()
         tenNum = 0;
         numLength = num.toString().length
 
-        /*
-        hexConvert =
-
-         */
-
         while (numLength > 0)
 
         {
