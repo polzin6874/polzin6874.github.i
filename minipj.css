@@ -26,15 +26,7 @@
     color: white;
     /* THANKS W3 SCHOOLS!!!! */
 }
-div.b {
-    text-align: center;
-}
-div.b {
-    border: 1px none black;
-    margin-top: 100px;
-    margin-bottom: 10px;
-    margin-right: 250px;
-    margin-left: 250px;
-    background-color: white;
-    /*thanks w3 schools! */
+
+body{
+    background: lightblue;
 }
