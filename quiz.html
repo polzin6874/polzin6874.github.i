@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HMmmm?</title>
+    <link rel="stylesheet" href="quizCSS.css">
+    <script src="quizScript.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+</head>
+<body>
+<div class="topnav">
+    <a  href="index.html">Home</a>
+    <a href="school.html">Sports</a>
+    <a href="dogerating.html">;)</a>
+    <a href="about.html">About</a>
+    <a href="miniproj.html">Mini Projects</a>
+    <a href="calculator.html">Calculator</a>
+    <a class="active" href="quiz.html">Quiz</a>
+</div>
+<h1>Welcome to the great quiz about me!!</h1>
+<form name="quiz">
+    Question 1: What is the stroke I swim?<br>
+    <input type="text" name="a1">
+    <br><br>
+    Question 2: What is my favorite video game to play?<br>
+    <input type="radio" name="a2" value="Rust">Rust<br>
+    <input type="radio" name="a2" value="Destiny">Destiny 2<br>
+    <input type="radio" name="a2" value="CSGO">CS:GO<br>
+    <input type="radio" name="a2" value="Fortnite">Fortnite<br>
+    <input type="radio" name="a2" value="Minecraft">Minecraft<br>
+    <br><br>
+    Question 3: Which team is better?<br>
+    <input type="radio" name="a3" value="Bears">Bears<br>
+    <input type="radio" name="a3" value="Packers">Packers<br>
+    <br><br>
+    Question 4: Which are my favorite classes?<br>
+    <input type="checkbox" name="a4A" value="compsci">Computer Science<br>
+    <input type="checkbox" name="a4B" value="Math">Math<br>
+    <input type="checkbox" name="a4C" value="Biology">Biology<br>
+    <input type="checkbox" name="a4D" value="English">English<br>
+    <input type="checkbox" name="a4E" value="German">German<br>
+    <input type="checkbox" name="a4F" value="worldgeo">World Geography<br>
+    <br><br>
+    Question 6: What is my dogs name (Not full name)?<br>
+    <input type="text" name="a5"><br><br>
+    Question 5: Who is my favorite Marvel character?<br>
+    <input type="radio" name="a6" value="Thor">Thor<br>
+    <input type="radio" name="a6" value="IronMan">Iron Man<br>
+    <input type="radio" name="a6" value="Vision">Vision<br>
+    <input type="radio" name="a6" value="Starlord">Starlord<br>
+    <input type="radio" name="a6" value="Thanos">Thanos<br>
+    <br><br>
+    <button type="button" onclick="document.answers.innerHTML=checkAnswers()">Submit Answers</button>
+</form>
+<form name="answers">
+
+</form>
+<br><br>
+<br><br>
+<br><br>
+</body>
