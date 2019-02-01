@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ANIMALS2</title>
+    <script>
+
+        var pic1 = new Image();
+        pic1.src = "img/fluffles.jpg";
+
+        var a;
+        var rectX = 25;
+        var rectY = 200;
+        var rectW = 20;
+        var rectH = 100;
+
+
+        var oX = 550;
+        var oY = 200;
+        var oW = 20;
+        var oH= 100;
+
+        var cX = 300;
+        var cY = 300;
+        var cW = 15;
+        var cH = 15;
+
+        var rightScore = 0;
+        var leftScore = 0;
+        function drawBackground() //things that will not move in the animation
+        {
+            var ctx= document.getElementById("myCanvas").getContext("2d");
+            ctx.fillStyle="#000000";
+            ctx.fillRect(0,0,window.innerWidth,window.innerHeight); // the dimensions of this rectangle
+            // will mirror the dimensions of the canvas
+            //regardless of the size of the canvas
+
+        }
+        function drawLines()
+        {
+            var ctx = document.getElementById("myCanvas").getContext("2d");
+            ctx.beginPath();//starting a new line
+            ctx.moveTo(300,0);
+            ctx.lineWidth = 10;
+            ctx.lineTo(300,20);
+            ctx.moveTo(300,40);
+            ctx.lineWidth = 10;
+            ctx.lineTo(300,60);
+            ctx.moveTo(300,80);
+            ctx.lineWidth = 10;
+            ctx.lineTo(300,100);
+            ctx.moveTo(300,120);
+            ctx.lineWidth = 10;
+            ctx.lineTo(300,140);
+            ctx.moveTo(300,160);
+            ctx.lineWidth = 10;
+            ctx.lineTo(300,180);
+            ctx.moveTo(300,200);
+            ctx.lineWidth = 10;
+            ctx.lineTo(300,220);
+            ctx.moveTo(300,240);
+            ctx.lineWidth = 10;
+            ctx.lineTo(300,260);
+            ctx.moveTo(300,280);
+            ctx.lineWidth = 10;
+            ctx.lineTo(300,300);
+            ctx.moveTo(300,320);
+            ctx.lineWidth = 10;
+            ctx.lineTo(300,340);
+            ctx.moveTo(300,360);
+            ctx.lineWidth = 10;
+            ctx.lineTo(300,380);
+            ctx.moveTo(300,400);
+            ctx.lineWidth = 10;
+            ctx.lineTo(300,420);
+            ctx.moveTo(300,440);
+            ctx.lineWidth = 10;
+            ctx.lineTo(300,460);
+            ctx.moveTo(300,480);
+            ctx.lineWidth = 10;
+            ctx.lineTo(300,500);
+            ctx.strokeStyle = "white";
+            ctx.stroke();
+        }
+        function scoreRight()
+        {
+            var ctx = document.getElementById("myCanvas").getContext("2d");
+
+            ctx.fillStyle = "white";
+            ctx.font = "40px Arial"; //more options at w3 schools
+            ctx.fillText(rightScore,330,40);
+        }
+        function scoreLeft()
+        {
+            var ctx = document.getElementById("myCanvas").getContext("2d");
+
+            ctx.fillStyle = "white";
+            ctx.font = "40px Arial"; //more options at w3 schools
+            ctx.fillText(leftScore,250,40);
+        }
+        // need to initialize the canvas and prep for animation
+        function initialize()
+        {
+            drawBackground(); // establish background
+            var ctx= document.getElementById("myCanvas").getContext("2d");
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(rectX,rectY,rectW,rectH);
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(oX,oY,oW,oH);
+        }
+        function animate() // these are the frames that get repeated (animated)
+        {
+            a = requestAnimationFrame(animate);
+            drawBackground();
+            moveRectangleRight();
+            checkRectangle();
+            drawObstacle();
+            checkCollisionObstacle();
+            moveObstacleRight();
+            checkObstacle();
+            drawBall();
+            moveBallRight();
+            checkBall();
+            checkCollisionBall();
+            checkCollisionBall2();
+            drawLines();
+            scoreRight();
+            scoreLeft();
+        }
+
+        function startAnimation()
+        {
+            animate();
+        }
+        function stopAnimation()
+        {
+            cancelAnimationFrame(a);
+        }
+
+        var moveAmount = 0;
+        var moveAmount2 = 3;
+        var moveAmount3 = 0;
+        var moveAmount4 = -3;
+        var moveAmount5 = 2;
+        var moveAmount6 = 3;
+
+        function moveRectangleRight()
+        {
+            var ctx= document.getElementById("myCanvas").getContext("2d");
+            rectX = rectX + moveAmount; // mod coordinate
+            rectY = rectY + moveAmount2;
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(rectX,rectY,rectW,rectH);
+        }
+
+        function checkRectangle()
+        {
+            if (rectX > 450)
+            {
+                moveAmount = moveAmount*(-1)
+            }
+            if (rectX < 0)
+            {
+                moveAmount = moveAmount*(-1)
+            }
+
+            if (rectY > 400)
+            {
+                moveAmount2 = moveAmount2*(-1)
+            }
+            if (rectY < 0)
+            {
+                moveAmount2 = moveAmount2*(-1)
+            }
+        }
+
+        function moveObstacleRight()
+        {
+            var ctx= document.getElementById("myCanvas").getContext("2d");
+            oX = oX + moveAmount3; // mod coordinate
+            oY = oY + moveAmount4;
+
+            ctx.fillRect(oX,oY,oW,oH);
+        }
+
+        function checkObstacle()
+        {
+            if (oX > 450)
+            {
+                moveAmount3 = moveAmount3*(-1)
+            }
+            if (oX < 0)
+            {
+                moveAmount3 = moveAmount3*(-1)
+            }
+
+            if (oY > 400)
+            {
+                moveAmount4 = moveAmount4*(-1)
+            }
+            if (oY < 0)
+            {
+                moveAmount4 = moveAmount4*(-1)
+            }
+        }
+
+        function drawObstacle()
+        {
+            var ctx= document.getElementById("myCanvas").getContext("2d");
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(oX,oY,oW,oH)
+        }
+
+        function checkCollisionObstacle()
+        {
+            //  var ctx= document.getElementById("myCanvas").getContext("2d");
+            if ( (rectY + rectH > oY) && (rectX < oX + oW) && (rectY < oY + oH)  && (rectX + rectW > oX) )
+            {
+
+                if ( (rectX < oX + oW) && (rectY < oY + oH)  && (rectX + rectW > oX))
+                {
+                    moveAmount2 = moveAmount2*(-1)
+                }
+                else if ((rectY + rectH > oY)  && (rectY < oY + oH)  && (rectX + rectW > oX))
+                {
+                    moveAmount = moveAmount*(-1)
+                }
+                else if ((rectY + rectH > oY) && (rectX < oX + oW)  && (rectX + rectW > oX))
+                {
+                    moveAmount2 = moveAmount2*(-1)
+                }
+                else if ((rectY + rectH > oY) && (rectX < oX + oW) && (rectY < oY + oH) )
+                {
+                    moveAmount = moveAmount*(-1)
+                }
+
+            }
+        }
+        function moveBallRight()
+        {
+            var ctx= document.getElementById("myCanvas").getContext("2d");
+            cX = cX + moveAmount5; // mod coordinate
+            cY = cY + moveAmount6;
+
+        }
+
+        function checkBall()
+        {
+            if (cX > 580)
+            {
+                cX = 300;
+                cY = 250;
+                moveAmount5 = moveAmount5*(-1);
+                leftScore++;
+            }
+            if (cX < 0)
+            {
+                cX = 300;
+                cY = 250;
+                moveAmount5 = moveAmount5*(-1);
+                rightScore++;
+            }
+
+            if (cY > 480)
+            {
+                moveAmount6 = moveAmount6*(-1)
+            }
+            if (cY < 0)
+            {
+                moveAmount6 = moveAmount6*(-1)
+            }
+        }
+
+        function drawBall()
+        {
+            var ctx= document.getElementById("myCanvas").getContext("2d");
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = "#000000";
+            ctx.beginPath();
+            ctx.arc(cX,cY,cW,0,2*(Math.PI));
+            ctx.fillStyle = "#ffffff";
+            ctx.fill();
+            ctx.stroke();
+
+        }
+        function checkCollisionBall()
+        {
+
+            if ( (rectY + rectH > cY) && (rectX < cX + cW) && (rectY < cY + cH)  && (rectX + rectW > cX) )
+            {
+
+                if ( (rectX < cX + cW) && (rectY < cY + cH)  && (rectX + rectW > cX))
+                {
+                    moveAmount5 = moveAmount5*(-1)
+                }
+                else if ((rectY + rectH > cY)  && (rectY < cY + cH)  && (rectX + rectW > cX))
+                {
+                    moveAmount5 = moveAmount5*(-1)
+                }
+                else if ((rectY + rectH > cY) && (rectX < cX + cW)  && (rectX + rectW > cX))
+                {
+                    moveAmount6 = moveAmount6*(-1)
+                }
+                else if ((rectY + rectH > cY) && (rectX < cX + cW) && (rectY < cY + cH) )
+                {
+                    moveAmount6 = moveAmount6*(-1)
+                }
+
+            }
+        }
+        function checkCollisionBall2()
+        {
+
+            if ( (oY + oH > cY) && (oX < cX + cW) && (oY < cY + cH)  && (oX + oW > cX) )
+            {
+
+                if ( (oX < cX + cW) && (oY < cY + cH)  && (oX + oW > cX))
+                {
+                    moveAmount5 = moveAmount5*(-1)
+                }
+                else if ((oY + oH > cY)  && (oY < cY + cH)  && (oX + oW > cX))
+                {
+                    moveAmount5 = moveAmount5*(-1)
+                }
+                else if ((oY + oH > cY) && (oX < cX + cW)  && (oX + oW > cX))
+                {
+                    moveAmount6 = moveAmount6*(-1)
+                }
+                else if ((oY + oH > cY) && (oX < cX + cW) && (oY < cY + cH) )
+                {
+                    moveAmount6 = moveAmount6*(-1)
+                }
+
+            }
+        }
+
+
+
+
+
+    </script>
+</head>
+<body onload="initialize()">
+<canvas id="myCanvas" width="600" height="500"></canvas> <br>
+<button type="button" onclick="startAnimation()">Start</button>
+<button type="button" onclick="stopAnimation()">Stop</button>
+
+</body>
+</html>
+
+<!-- if ((rectY + rectH > oY) && (rectX < oX + oW))
+{
+moveAmount2 = moveAmount2*(-1)
+}
+else if ((rectY + rectH > oY) &&  (rectX + rectW > oX))
+{
+moveAmount = moveAmount*(-1)
+}
+else if ( (rectX < oX + oW) && (rectY < oY + oH)  )
+{
+moveAmount2 = moveAmount2*(-1)
+}
+else if ( (rectY < oY + oH)  && (rectX + rectW > oX))
+{
+moveAmount = moveAmount*(-1)
+}
