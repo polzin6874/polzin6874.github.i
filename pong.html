@@ -34,11 +34,6 @@
             ctx.fillRect(0,0,window.innerWidth,window.innerHeight); // the dimensions of this rectangle
             // will mirror the dimensions of the canvas
             //regardless of the size of the canvas
-
-        }
-        function drawLines()
-        {
-            var ctx = document.getElementById("myCanvas").getContext("2d");
             ctx.beginPath();//starting a new line
             ctx.moveTo(300,0);
             ctx.lineWidth = 10;
@@ -81,23 +76,12 @@
             ctx.lineTo(300,500);
             ctx.strokeStyle = "white";
             ctx.stroke();
-        }
-        function scoreRight()
-        {
-            var ctx = document.getElementById("myCanvas").getContext("2d");
-
-            ctx.fillStyle = "white";
-            ctx.font = "40px Arial"; //more options at w3 schools
-            ctx.fillText(rightScore,330,40);
-        }
-        function scoreLeft()
-        {
-            var ctx = document.getElementById("myCanvas").getContext("2d");
-
             ctx.fillStyle = "white";
             ctx.font = "40px Arial"; //more options at w3 schools
             ctx.fillText(leftScore,250,40);
+            ctx.fillText(rightScore,330,40);
         }
+        
         // need to initialize the canvas and prep for animation
         function initialize()
         {
